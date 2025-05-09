@@ -18,10 +18,10 @@ public class EmpXEmp {
     private UUID id;
 
     @ManyToOne
-    @JoinColumn(name = "mentor_id", nullable = false, foreignKey = @ForeignKey(name = "FK_empXemp_employee"))
+    @JoinColumn(name = "mentor_id", nullable = false, foreignKey = @ForeignKey(name = "FK_empXemp_employeeMentr"))
     private Employee mentor;
 
     @ManyToOne
-    @JoinColumn(name = "mentee_id", nullable = false, foreignKey = @ForeignKey(name = "FK_empXemp_employee"))
+    @JoinColumn(name = "mentee_id", nullable = false, foreignKey = @ForeignKey(name = "FK_empXemp_employeeMentee"))
     private Employee mentee;
 }
