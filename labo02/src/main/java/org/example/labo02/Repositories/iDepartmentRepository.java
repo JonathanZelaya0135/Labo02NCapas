@@ -11,7 +11,7 @@ public interface iDepartmentRepository extends iGenericRepository<Department, In
 
     // Hybrid Query
     @Query("SELECT d FROM Department d WHERE d.name = :name")
-    public Department findByName(String name);
+    public Department findByNameHybridQuery(String name);
 
     // Native Query
     @Query(nativeQuery = true, value = "SELECT * FROM department WHERE name = :name")

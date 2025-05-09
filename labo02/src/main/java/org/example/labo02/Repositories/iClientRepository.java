@@ -13,9 +13,9 @@ public interface iClientRepository extends iGenericRepository<Client, UUID>{
 
     // Hybrid Query
     @Query("SELECT c FROM Client c WHERE c.name = :name")
-    public Client findByName(String name);
+    public Client findByNameHybridQuery(String name);
 
     // Native Query
     @Query(nativeQuery = true, value = "SELECT * FROM client WHERE email = :email")
-    public Client findByEmail(String email);
+    public Client findByEmailNativeQuery(String email);
 }

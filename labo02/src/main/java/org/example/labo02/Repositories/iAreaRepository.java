@@ -13,9 +13,9 @@ public interface iAreaRepository extends iGenericRepository<Area, UUID> {
 
     // Hybrid Query
     @Query("SELECT a FROM Area a WHERE a.name = :name")
-    public Area findByName(String name);
+    public Area findByNameHybridQuery(String name);
 
     // Native Query
     @Query(nativeQuery = true, value = "SELECT * FROM area WHERE price = :price")
-    public Area findByPrice(Float price);
+    public Area findByPriceNativeQuery(Float price);
 }
