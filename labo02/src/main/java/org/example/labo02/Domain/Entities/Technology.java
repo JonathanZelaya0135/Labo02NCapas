@@ -25,5 +25,5 @@ public class Technology {
     private String version;
 
     @OneToMany(mappedBy = "technology")
-    private List<TecXPro> technologyProjects;
+    private List<TecXPro> projectsTechnology;
 }

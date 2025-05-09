@@ -25,5 +25,8 @@ public class Area {
     private Float price;
 
     @OneToMany(mappedBy = "area")
-    private List<Project> projects;
+    private List<Category> categoriesList;
+
+    @OneToMany(mappedBy = "area")
+    private List<Project> projectsList;
 }

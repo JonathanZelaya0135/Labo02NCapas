@@ -11,18 +11,17 @@ import java.util.UUID;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class EvaXEmp {
+public class EmpXEmp {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
     @ManyToOne
-    @JoinColumn(name = "id_evaluation", nullable = false, foreignKey = @ForeignKey(name = "FK_evaxemp_evaluation"))
-    private Evaluation evaluation;
+    @JoinColumn(name = "mentor_id", nullable = false, foreignKey = @ForeignKey(name = "FK_empXemp_employee"))
+    private Employee mentor;
 
     @ManyToOne
-    @JoinColumn(name = "id_employee", nullable = false, foreignKey = @ForeignKey(name = "FK_evaxemp_employee"))
-    private Employee employee;
+    @JoinColumn(name = "mentee_id", nullable = false, foreignKey = @ForeignKey(name = "FK_empXemp_employee"))
+    private Employee mentee;
 }
-

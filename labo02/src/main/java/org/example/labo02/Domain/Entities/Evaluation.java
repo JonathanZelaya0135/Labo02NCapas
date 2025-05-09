@@ -27,6 +27,7 @@ public class Evaluation {
     @Column
     private String comments;
 
-    @OneToMany(mappedBy = "evaluation")
-    private List<EvaXEmp> evaluationEmployees;
+    @ManyToOne
+    @JoinColumn(name = "id_employee", nullable = false, foreignKey = @ForeignKey(name = "FK_evaluation_employee"))
+    private Employee employee;
 }

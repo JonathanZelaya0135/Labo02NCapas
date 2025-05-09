@@ -33,26 +33,25 @@ public class Employee {
     @Column
     private String position;
 
-    @ManyToOne
-    @JoinColumn(name = "id_mentor", foreignKey = @ForeignKey(name = "FK_employee_mentor"))
-    private Employee mentor;
+    @OneToMany(mappedBy = "employee")
+    private List<Project> projectsList;
+
+    @OneToMany(mappedBy = "mentee")
+    private List<EmpXEmp> menteeList;
+
+    @OneToMany(mappedBy = "employee")
+    private List<ProXEmp> projectList;
+
+    @OneToMany(mappedBy = "employee")
+    private List<TraXEmp> trainingList;
 
     @OneToMany(mappedBy = "mentor")
-    private List<Employee> mentees;
+    private List<EmpXEmp> mentorList;
+
+    @OneToMany(mappedBy = "employee")
+    private List<Evaluation> evaluationsList;
 
     @ManyToOne
     @JoinColumn(name = "id_department", nullable = false, foreignKey = @ForeignKey(name = "FK_employee_department"))
     private Department department;
-
-    @OneToMany(mappedBy = "leader")
-    private List<Project> ledProjects;
-
-    @OneToMany(mappedBy = "employee")
-    private List<ProXEmp> employeeProjects;
-
-    @OneToMany(mappedBy = "employee")
-    private List<TraXEmp> employeeTrainings;
-
-    @OneToMany(mappedBy = "employee")
-    private List<EvaXEmp> employeeEvaluations;
 }

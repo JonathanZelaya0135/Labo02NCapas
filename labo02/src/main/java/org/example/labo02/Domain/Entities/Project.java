@@ -19,22 +19,27 @@ public class Project {
     private UUID idProject;
 
     @Column
+    private String code;
+
+    @Column
     private String name;
+
+    @OneToMany(mappedBy = "project")
+    private List<TecXPro> techList;
+
+    @OneToMany(mappedBy = "project")
+    private List<ProXEmp> empList;
 
     @ManyToOne
     @JoinColumn(name = "id_area", nullable = false, foreignKey = @ForeignKey(name = "FK_project_area"))
     private Area area;
 
     @ManyToOne
-    @JoinColumn(name = "id_employee", nullable = false, foreignKey = @ForeignKey(name = "FK_project_employee_leader"))
-    private Employee leader;
+    @JoinColumn(name = "id_client", nullable = false, foreignKey = @ForeignKey(name = "FK_project_client"))
+    private Client client;
 
-    @OneToMany(mappedBy = "project")
-    private List<ProXEmp> projectEmployees;
+    @ManyToOne
+    @JoinColumn(name = "id_leader", nullable = false, foreignKey = @ForeignKey(name = "FK_project_employee"))
+    private Employee employee;
 
-    @OneToMany(mappedBy = "project")
-    private List<TecXPro> projectTechnologies;
-
-    @OneToMany(mappedBy = "project")
-    private List<ClieXPro> projectClients;
 }

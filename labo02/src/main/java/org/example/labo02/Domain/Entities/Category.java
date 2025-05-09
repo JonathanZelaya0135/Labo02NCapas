@@ -5,27 +5,20 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.util.UUID;
-import java.util.List;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Client {
-
+public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID idClient;
+    private UUID idCategory;
 
     @Column
     private String name;
 
-    @Column
-    private String industry;
-
-    @Column
-    private String email;
-
-    @OneToMany(mappedBy = "client")
-    private List<Project> clientsProjects;
+    @ManyToOne
+    @JoinColumn(name = "id_area", nullable = false, foreignKey = @ForeignKey(name = "FK_category_area"))
+    private Area area;
 }
